@@ -1,7 +1,4 @@
 <div align="center">
-  <!-- 🖼️ Banner/Logo Placeholder -->
-  <img src="https://via.placeholder.com/800x200/1e1e2e/a6accd?text=StaffPurse+staffpurse-web" alt="" width="100%" />
-
   <h1>StaffPurse Web</h1>
   <p><strong>Public verification dashboard for StaffPurse's Soroban-anchored spend records.</strong></p>
 

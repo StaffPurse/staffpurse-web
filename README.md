@@ -41,12 +41,6 @@ npm run dev
 
 Please read our [Contributing Guidelines](CONTRIBUTING.md) and [Security Policy](SECURITY.md) before submitting pull requests. All PRs must pass the CI gates and follow our code quality standards.
 
-## 👥 Maintainers
-
-| Name | Contact | Role |
-| :--- | :--- | :--- |
-| Ademola | [Telegram](https://t.me/placeholder) | Core Maintainer |
-
 ## ✨ Contributors
 
 <a href="https://github.com/StaffPurse/staffpurse-web/graphs/contributors">

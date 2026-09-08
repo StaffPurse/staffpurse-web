@@ -1,60 +1,54 @@
-# StaffPurse Web
+<div align="center">
+  <!-- 🖼️ Banner/Logo Placeholder -->
+  <img src="https://via.placeholder.com/800x200/1e1e2e/a6accd?text=StaffPurse+staffpurse-web" alt="🔍 StaffPurse Web Banner" width="100%" />
 
-> Public verification dashboard for StaffPurse's Soroban-anchored spend records.
+  <h1>🔍 StaffPurse Web</h1>
+  <p><strong>Public verification dashboard for StaffPurse's Soroban-anchored spend records.</strong></p>
 
-The StaffPurse Verification Dashboard allows third-party auditors and business owners to cryptographically verify individual transactions. It reads raw records from our off-chain Supabase database, fetches the corresponding daily Merkle root anchored on Stellar via Soroban, and performs client-side verification to prove ledger integrity.
+  <p>
+    <img src="https://img.shields.io/github/actions/workflow/status/StaffPurse/staffpurse-web/web-ci.yml?branch=main" alt="CI Status" />
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License" />
+  </p>
 
----
+  <p>
+    <a href="https://staffpurse.gitbook.io"><strong>Documentation</strong></a> ·
+    <a href="https://t.me/+Gflo5jZStw1jMjE0"><strong>Community Telegram</strong></a>
+  </p>
+</div>
 
-## 🛠 Tech Stack
+## 📖 Overview
 
-- **Frontend:** Next.js (React, TypeScript)
-- **Styling:** Tailwind CSS
-- **Database Client:** Supabase (`@supabase/supabase-js`)
-- **Blockchain Client:** Stellar SDK (`@stellar/stellar-sdk`)
-- **Cryptography:** Native Web Crypto API / `js-sha256`
+A lightweight web interface allowing third-party auditors and business owners to cryptographically verify individual transactions. It ensures that the off-chain spend records perfectly match the daily Merkle roots securely anchored on the Stellar blockchain.
 
----
+## 🏗 Architecture
 
-## 🚀 Getting Started
+A **Next.js (React/TypeScript)** frontend styled with **Tailwind CSS**. It queries the off-chain Supabase database for raw records and sibling proofs, queries the on-chain Soroban contract for the true root, and performs native client-side cryptographic hash validation.
 
-The dashboard is a standard Next.js web application that requires connections to both the off-chain database and the Stellar RPC node.
+## 🚀 Quick Start
 
-### 1. Prerequisites
-- Node.js (v18+)
-- npm, yarn, or pnpm
-- A [Supabase](https://supabase.com/) Project (sharing data with `staffpurse-app`)
-
-### 2. Environment Setup
-Create a `.env.local` file in the root directory and add your environment variables:
 ```bash
-NEXT_PUBLIC_SUPABASE_URL=https://YOUR_PROJECT.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...
-NEXT_PUBLIC_STELLAR_RPC_URL=https://soroban-testnet.stellar.org
-NEXT_PUBLIC_ANCHOR_CONTRACT_ID=C...
-```
-
-### 3. Run the App
-Install dependencies and start the development server:
-```bash
+# Install dependencies
 npm install
+
+# Set up environment variables
+cp .env.example .env.local
+
+# Run development server
 npm run dev
 ```
-Navigate to `http://localhost:3000` to view the dashboard.
 
----
+## 🤝 Contributing
 
-## 🔍 Verification Flow
+Please read our [Contributing Guidelines](CONTRIBUTING.md) and [Security Policy](SECURITY.md) before submitting pull requests. All PRs must pass the CI gates and follow our code quality standards.
 
-The dashboard provides a "Verification Badge" component for spend records. When a record is queried:
-1. It retrieves the record details and its pre-computed Merkle proof array from Supabase.
-2. It queries the Soroban smart contract for the official 32-byte root anchored on that specific day.
-3. It performs a client-side cryptographic hash of the record data, applies the Merkle proof, and compares the result.
-4. If they match, a green **"✓ Verified on Stellar"** badge is displayed. If the contract read fails (e.g. network issues), it degrades gracefully to **"Unverifiable"**.
+## 👥 Maintainers
 
----
+| Name | Contact | Role |
+| :--- | :--- | :--- |
+| Ademola | [Telegram](https://t.me/placeholder) | Core Maintainer |
 
-## 🏗 Architecture Reference
-- Read [ARCHITECTURE.md](ARCHITECTURE.md) for data flow and structural decisions.
-- Read [ARCHITECTURE_ESSENTIALS.md](ARCHITECTURE_ESSENTIALS.md) for a quick overview of critical constraints.
-- Read [PRD.md](PRD.md) for product scope and targeted use cases.
+## ✨ Contributors
+
+<a href="https://github.com/StaffPurse/staffpurse-web/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=StaffPurse/staffpurse-web" alt="Contributors" />
+</a>

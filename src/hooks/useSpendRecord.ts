@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
+import { getMockRecord } from '../lib/mock-data';
 
 // Initialize Supabase client
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder';
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+const useMocks = process.env.NEXT_PUBLIC_USE_MOCKS === 'true';
 
 export interface SpendRecord {
   id: string;
@@ -32,6 +35,15 @@ export function useSpendRecord(recordId: string | null) {
       setIsLoading(true);
       setError(null);
       try {
+        if (useMocks) {
+          // Simulate network delay
+          await new Promise(resolve => setTimeout(resolve, 500));
+          const record = getMockRecord(recordId);
+          if (!record) throw new Error('Record not found (mock)');
+          if (isMounted) setData(record);
+          return;
+        }
+
         const { data: record, error: fetchError } = await supabase
           .from('spend_records')
           .select('*')

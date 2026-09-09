@@ -38,7 +38,7 @@ export function useSpendRecord(recordId: string | null) {
         if (useMocks) {
           // Simulate network delay
           await new Promise(resolve => setTimeout(resolve, 500));
-          const record = getMockRecord(recordId);
+          const record = getMockRecord(recordId as string);
           if (!record) throw new Error('Record not found (mock)');
           if (isMounted) setData(record);
           return;

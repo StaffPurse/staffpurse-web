@@ -35,6 +35,8 @@ Requirements to stand up a functional, review-ready Next.js verification dashboa
 - [x] **Issue #14 — Next.js Project Scaffolding:** [Initialize Next.js 14 project with TypeScript, Tailwind CSS, and Lucide icons](https://github.com/StaffPurse/staffpurse-web/issues/14)
 - [x] **Issue #15 — Spend Records Table Component:** [Build Spend Records Table integrating verification badges, search, and Soroban proof validation](https://github.com/StaffPurse/staffpurse-web/issues/15) ✅ *(Completed by @mallison031)*
 - [x] **Issue #16 — Mock Data Fixtures:** [Add mock data fixtures and offline demo mode](https://github.com/StaffPurse/staffpurse-web/issues/16)
+- [x] **Issue #23 — Docs Hosting:** [Host project documentation on GitHub Pages](https://github.com/StaffPurse/staffpurse-web/issues/23)
+- [x] **Issue #24 — Block Explorer Deep Links:** [Add Stellar Block Explorer deep links to SpendRecordsTable](https://github.com/StaffPurse/staffpurse-web/issues/24)
 
 ### 🔍 Identified Gaps & Action Items
 - [x] ~~**GAP-W1: Project Scaffolding (`package.json` & Toolchain)**~~ → Created as **Issue #14**

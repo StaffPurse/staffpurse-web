@@ -55,14 +55,14 @@ Preparing a production-grade issue backlog for Wave contributors.
 - [x] Initial Phase 1 issues (#1–#8) published with detailed requirements and checklists.
 
 ### 🔍 Identified Gaps & Action Items
-- [ ] **GAP-W5: GitHub Labels Configuration:**
+- [x] **GAP-W5: GitHub Labels Configuration:**
   - *Problem:* Repository only contains default labels (`bug`, `enhancement`).
   - *Action:* Create labels:
     - `complexity: trivial (100 pts)`
     - `complexity: medium (150 pts)`
     - `complexity: high (200 pts)`
     - `wave-1`
-- [ ] **GAP-W6: Issue Sizing & Point Assignment:**
+- [x] **GAP-W6: Issue Sizing [ ] **GAP-W6: Issue Sizing & Point Assignment:** Point Assignment:**
   - *Problem:* Existing issues lack explicit point metadata.
   - *Action:* Tag open issues:
     - `#1` Repo Hygiene → Trivial (100 pts)
@@ -74,7 +74,7 @@ Preparing a production-grade issue backlog for Wave contributors.
     - `#7` Next.js Layout Shell → Medium (150 pts)
     - `#8` Vercel CI Pipeline → Trivial (100 pts)
     - `GAP-W2` Verification Table → High (200 pts)
-- [ ] **GAP-W7: Wave 2 Feature Backlog Seeding:**
+- [x] **GAP-W7: Wave 2 Feature Backlog Seeding:**
   - *Problem:* Lack of follow-up issues for subsequent cycles.
   - *Action:* Draft Wave 2 candidate issues:
     - Date-range and organization filtering.
@@ -98,7 +98,7 @@ Managing frontend contributors during the 1-week sprint.
 - [ ] **GAP-W9: Stale Assignment Reallocation:**
   - *Problem:* Contributors claiming frontend issues without delivering before the 1-week deadline.
   - *Action:* Enforce 48-hour check-in requirement; reassign issue if no draft PR is opened.
-- [ ] **GAP-W10: Issue Template Placeholder Cleanup:**
+- [x] **GAP-W10: Issue Template Placeholder Cleanup:**
   - *Problem:* `.github/ISSUE_TEMPLATE/drips-wave-issue.md` still contains placeholder strings (`[link]`, `$org/$repo`).
   - *Action:* Replace with concrete StaffPurse URLs.
 

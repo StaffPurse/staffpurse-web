@@ -15,7 +15,7 @@ Pre-implementation verification of frontend data sources and RPC endpoints.
 
 ### 🔍 Identified Gaps & Action Items (Now Tracked in GitHub Issues)
 - [x] **Issue #13 — Supabase RLS & Soroban RPC CORS Spike:** [Verify Supabase RLS anon access and Soroban RPC CORS on Testnet](https://github.com/StaffPurse/staffpurse-web/issues/13) ✅ *(Completed by @mallison031)*
-- [ ] **Points Allocation Budget:** Confirm exact Wave 1 points ceiling for `staffpurse-web` on the Drips dashboard (target: ~25,000 pts).
+- [x] **Points Allocation Budget:** Confirm exact Wave 1 points ceiling for `staffpurse-web` on the Drips dashboard (target: ~25,000 pts).
 
 ---
 
@@ -25,16 +25,16 @@ Requirements to stand up a functional, review-ready Next.js verification dashboa
 
 ### 📋 Current Work (Tracked in GitHub Issues)
 - [x] **Issue #1 — Repository Hygiene & Security:** [Add SECURITY.md and configure repository hygiene](https://github.com/StaffPurse/staffpurse-web/issues/1) ✅ *(Completed by @mallison031)*
-- [ ] **Issue #2 — Supabase Data Hook:** [Implement Supabase data fetching hook for spend records](https://github.com/StaffPurse/staffpurse-web/issues/2)
+- [x] **Issue #2 — Supabase Data Hook:** [Implement Supabase data fetching hook for spend records](https://github.com/StaffPurse/staffpurse-web/issues/2)
 - [x] **Issue #3 — Soroban RPC Data Hook:** [Implement Soroban RPC data fetching hook for daily roots](https://github.com/StaffPurse/staffpurse-web/issues/3) ✅ *(Completed by @mallison031)*
-- [ ] **Issue #4 — Merkle Proof Validator Utility:** [Implement client-side Merkle proof validation utility](https://github.com/StaffPurse/staffpurse-web/issues/4)
+- [x] **Issue #4 — Merkle Proof Validator Utility:** [Implement client-side Merkle proof validation utility](https://github.com/StaffPurse/staffpurse-web/issues/4)
 - [x] **Issue #5 — Verification Badge Component:** [Build Verification Badge UI Component](https://github.com/StaffPurse/staffpurse-web/issues/5) ✅ *(Completed by @mallison031)*
-- [ ] **Issue #6 — Search Bar UI Component:** [Build the Search Bar UI component for record lookups](https://github.com/StaffPurse/staffpurse-web/issues/6)
+- [x] **Issue #6 — Search Bar UI Component:** [Build the Search Bar UI component for record lookups](https://github.com/StaffPurse/staffpurse-web/issues/6)
 - [x] **Issue #7 — Base Layout & Shell:** [Scaffold the main Next.js layout and routing structure](https://github.com/StaffPurse/staffpurse-web/issues/7) ✅ *(Completed by @mallison031)*
-- [ ] **Issue #8 — Vercel Deployment & CI Pipeline:** [Set up Vercel deployment configuration and CI pipeline](https://github.com/StaffPurse/staffpurse-web/issues/8)
-- [ ] **Issue #14 — Next.js Project Scaffolding:** [Initialize Next.js 14 project with TypeScript, Tailwind CSS, and Lucide icons](https://github.com/StaffPurse/staffpurse-web/issues/14)
+- [x] **Issue #8 — Vercel Deployment & CI Pipeline:** [Set up Vercel deployment configuration and CI pipeline](https://github.com/StaffPurse/staffpurse-web/issues/8)
+- [x] **Issue #14 — Next.js Project Scaffolding:** [Initialize Next.js 14 project with TypeScript, Tailwind CSS, and Lucide icons](https://github.com/StaffPurse/staffpurse-web/issues/14)
 - [x] **Issue #15 — Spend Records Table Component:** [Build Spend Records Table integrating verification badges, search, and Soroban proof validation](https://github.com/StaffPurse/staffpurse-web/issues/15) ✅ *(Completed by @mallison031)*
-- [ ] **Issue #16 — Mock Data Fixtures:** [Add mock data fixtures and offline demo mode](https://github.com/StaffPurse/staffpurse-web/issues/16)
+- [x] **Issue #16 — Mock Data Fixtures:** [Add mock data fixtures and offline demo mode](https://github.com/StaffPurse/staffpurse-web/issues/16)
 
 ### 🔍 Identified Gaps & Action Items
 - [x] ~~**GAP-W1: Project Scaffolding (`package.json` & Toolchain)**~~ → Created as **Issue #14**

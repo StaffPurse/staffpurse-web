@@ -3,7 +3,7 @@ import { SpendRecordsTable } from '../components/SpendRecordsTable';
 
 export default function HomePage() {
   return (
-    <div className="space-y-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
       {/* Hero Header */}
       <div>
         <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">

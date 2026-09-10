@@ -151,6 +151,12 @@ export default function DocsPage() {
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 The public face of transparency. A blazing fast Next.js React application styled with Tailwind CSS, deployed statically to GitHub Pages.
               </p>
+              <div className="mt-6 mb-8">
+                <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-sm transition-colors">
+                  View Live Dashboard
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                </Link>
+              </div>
               <h3 className="text-xl font-bold text-slate-900 mt-8 mb-4">Auditor UX</h3>
               <p className="text-slate-700 mb-4">
                 The dashboard fetches the latest spending records via a public REST API. Crucially, it then executes a live JSON-RPC call directly to the Stellar Soroban Testnet to fetch the authoritative Merkle root for that day.

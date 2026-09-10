@@ -64,7 +64,7 @@ export default function DocsPage() {
             <section id="vision" className="scroll-mt-24 mb-16">
               <h2 className="text-3xl font-bold tracking-tight text-slate-900 border-b border-slate-200 pb-4 mb-6">Vision & Mission</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                Corporate spend management is historically opaque. Employees submit receipts into centralized black boxes, and external auditors rely entirely on trusting the corporation's internal database records. 
+                Corporate spend management is historically opaque. Employees submit receipts into centralized black boxes, and external auditors rely entirely on trusting the corporation&apos;s internal database records. 
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 <strong>StaffPurse changes this paradigm.</strong> By cryptographically hashing daily expense records into a Merkle Tree and anchoring the root on the Stellar blockchain, we prove that historical records have never been tampered with. We enable zero-knowledge auditability for compliance officers while keeping employee names and exact receipt images off-chain and perfectly private.
@@ -119,7 +119,7 @@ export default function DocsPage() {
               <h3 className="text-xl font-bold text-slate-900 mt-8 mb-4">Core Functionality</h3>
               <ul className="list-disc pl-6 space-y-2 text-slate-700">
                 <li><strong>State Initialization:</strong> The contract is initialized with a trusted <code>admin</code> (the StaffPurse Edge Function wallet address).</li>
-                <li><strong>Root Anchoring:</strong> Only the authorized admin can call <code>anchor_root(batch_date, root_hash)</code>. This stores the 32-byte Merkle root in the contract's <code>Persistent</code> storage mapped by date.</li>
+                <li><strong>Root Anchoring:</strong> Only the authorized admin can call <code>anchor_root(batch_date, root_hash)</code>. This stores the 32-byte Merkle root in the contract&apos;s <code>Persistent</code> storage mapped by date.</li>
                 <li><strong>Public Querying:</strong> Anyone can call <code>get_root(batch_date)</code> to retrieve the historical root for auditing without needing authorization.</li>
                 <li><strong>WASM Upgrades:</strong> Built-in upgrade pathways allow the admin to swap out the WASM logic for future features.</li>
               </ul>
@@ -137,7 +137,7 @@ export default function DocsPage() {
               <ol className="list-decimal pl-6 space-y-4 text-slate-700">
                 <li><strong>Data Entry:</strong> Employees submit expenses via the Flutter app. Data is stored in Supabase with RLS (Row Level Security).</li>
                 <li><strong>Daily Cron Job:</strong> At 00:05 UTC, pg_cron triggers the <code>anchor-batch</code> Edge Function.</li>
-                <li><strong>Merkle Tree Generation:</strong> The Deno function selects all un-anchored records, computes their SHA-256 leaves, and generates a Merkle Tree using OpenZeppelin's standard.</li>
+                <li><strong>Merkle Tree Generation:</strong> The Deno function selects all un-anchored records, computes their SHA-256 leaves, and generates a Merkle Tree using OpenZeppelin&apos;s standard.</li>
                 <li><strong>On-Chain Submission:</strong> The function signs a Soroban transaction with the generated root and submits it to the Stellar RPC.</li>
                 <li><strong>Database Update:</strong> Upon successful anchoring, the individual records are updated in the database with their respective Merkle inclusion proofs (siblings).</li>
               </ol>
@@ -156,7 +156,7 @@ export default function DocsPage() {
                 The dashboard fetches the latest spending records via a public REST API. Crucially, it then executes a live JSON-RPC call directly to the Stellar Soroban Testnet to fetch the authoritative Merkle root for that day.
               </p>
               <p className="text-slate-700 mb-4">
-                All cryptography (SHA-256 hashing and Merkle proof verification) is performed entirely in the browser's JavaScript environment. If the local proof computation matches the on-chain root, a green <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">Verified</span> badge is shown, granting auditors absolute mathematical certainty of the record's integrity.
+                All cryptography (SHA-256 hashing and Merkle proof verification) is performed entirely in the browser&apos;s JavaScript environment. If the local proof computation matches the on-chain root, a green <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">Verified</span> badge is shown, granting auditors absolute mathematical certainty of the record&apos;s integrity.
               </p>
             </section>
 

@@ -3,7 +3,7 @@
   <p><strong>Public verification dashboard for StaffPurse's Soroban-anchored spend records.</strong></p>
 
   <p>
-    <img src="https://img.shields.io/github/actions/workflow/status/StaffPurse/staffpurse-web/web-ci.yml?branch=main" alt="CI Status" />
+    <img src="https://img.shields.io/github/actions/workflow/status/StaffPurse/staffpurse-web/ci.yml?branch=main" alt="CI Status" />
     <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License" />
   </p>
 
@@ -41,5 +41,5 @@ Please read our [Contributing Guidelines](CONTRIBUTING.md) and [Security Policy]
 ## ✨ Contributors
 
 <a href="https://github.com/StaffPurse/staffpurse-web/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=StaffPurse/staffpurse-web" alt="Contributors" />
+  <img src="https://contrib.rocks/image?repo=StaffPurse/staffpurse-web&v=1" alt="Contributors" />
 </a>

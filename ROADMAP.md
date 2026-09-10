@@ -40,7 +40,7 @@ Requirements to stand up a functional, review-ready Next.js verification dashboa
 - [x] ~~**GAP-W1: Project Scaffolding (`package.json` & Toolchain)**~~ → Created as **Issue #14**
 - [x] ~~**GAP-W2: Verification Table / Record List Component**~~ → Created as **Issue #15**
 - [x] ~~**GAP-W3: Mock Data & Fixtures for Local Development**~~ → Created as **Issue #16**
-- [ ] **GAP-W4: Stellar Block Explorer Deep Links:** Ensure `SpendRecordsTable` rows and badges link to Stellar Expert for batch transactions and contract addresses.
+- [x] ~~**GAP-W4: Stellar Block Explorer Deep Links**~~ → Created as **Issue #24**
 
 ---
 

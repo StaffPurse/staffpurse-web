@@ -15,7 +15,7 @@ Pre-implementation verification of frontend data sources and RPC endpoints.
 
 ### 🔍 Identified Gaps & Action Items (Now Tracked in GitHub Issues)
 - [x] **Issue #13 — Supabase RLS & Soroban RPC CORS Spike:** [Verify Supabase RLS anon access and Soroban RPC CORS on Testnet](https://github.com/StaffPurse/staffpurse-web/issues/13) ✅ *(Completed by @mallison031)*
-- [ ] **Points Allocation Budget:** Confirm exact Wave 1 points ceiling for `staffpurse-web` on the Drips dashboard (target: ~25,000 pts).
+- [x] **Points Allocation Budget:** Confirm exact Wave 1 points ceiling for `staffpurse-web` on the Drips dashboard (target: ~25,000 pts).
 
 ---
 

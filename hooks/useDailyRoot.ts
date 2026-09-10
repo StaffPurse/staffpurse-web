@@ -48,7 +48,7 @@ export function useDailyRoot(batchDate: string | null): UseDailyRootResult {
           // Synthetic deterministic hash for demonstration/development
           const mockRoot = 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855';
           if (isMounted) {
-            rootCache.set(batchDate, mockRoot);
+            rootCache.set(batchDate as string, mockRoot);
             setRoot(mockRoot);
             setIsLoading(false);
           }
@@ -80,7 +80,7 @@ export function useDailyRoot(batchDate: string | null): UseDailyRootResult {
 
         if (isMounted) {
           if (rootHex) {
-            rootCache.set(batchDate, rootHex);
+            rootCache.set(batchDate as string, rootHex);
           }
           setRoot(rootHex);
           setIsLoading(false);

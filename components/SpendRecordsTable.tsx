@@ -3,6 +3,8 @@
 import React, { useState, useMemo } from 'react';
 import { VerificationBadge, VerificationStatus } from './VerificationBadge';
 import { useDailyRoot } from '../hooks/useDailyRoot';
+import { ExternalLinkIcon as ExternalLink } from './VerificationBadge';
+import { getExplorerTxUrl } from '../utils/explorer';
 
 export interface SpendRecord {
   id: string;
@@ -25,7 +27,7 @@ const DEMO_RECORDS: SpendRecord[] = [
   {
     id: 'rec-01',
     batch_date: '2026-09-08',
-    transaction_ref: 'tx_bmoni_98412847192',
+    transaction_ref: '7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069',
     anonymized_recipient_hash: 'a1b2c3d4e5f67890123456789abcdef012345678',
     amount_ngn: 25000.0,
     currency: 'NGN',
@@ -37,7 +39,7 @@ const DEMO_RECORDS: SpendRecord[] = [
   {
     id: 'rec-02',
     batch_date: '2026-09-08',
-    transaction_ref: 'tx_bmoni_47192837190',
+    transaction_ref: '2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae',
     anonymized_recipient_hash: 'c8f1e2d3b4a567890123456789abcdef01234567',
     amount_ngn: 15400.0,
     currency: 'NGN',
@@ -153,6 +155,8 @@ export const SpendRecordsTable: React.FC<SpendRecordsTableProps> = ({
             ) : (
               filteredRecords.map((record) => {
                 const status = getRecordStatus(record);
+                // Simple heuristic: if it looks like a hex string and status is verified, we can link it
+                const isTxHash = /^[a-fA-F0-9]{64}$/.test(record.transaction_ref);
                 return (
                   <tr key={record.id} className="hover:bg-slate-50/80 transition-colors">
                     <td className="py-3.5 px-4 sm:px-6 text-xs text-slate-500 whitespace-nowrap">
@@ -165,7 +169,21 @@ export const SpendRecordsTable: React.FC<SpendRecordsTableProps> = ({
                       })}
                     </td>
                     <td className="py-3.5 px-4 sm:px-6 font-mono text-xs text-slate-800 font-medium">
-                      {record.transaction_ref}
+                      {isTxHash && status === 'verified' ? (
+                        <a 
+                          href={getExplorerTxUrl(record.transaction_ref)} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:text-blue-800 hover:underline inline-flex items-center gap-1"
+                        >
+                          {record.transaction_ref.substring(0, 8)}...{record.transaction_ref.slice(-8)}
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      ) : (
+                        record.transaction_ref.length > 20 ? 
+                          `${record.transaction_ref.substring(0, 8)}...${record.transaction_ref.slice(-8)}` : 
+                          record.transaction_ref
+                      )}
                     </td>
                     <td className="py-3.5 px-4 sm:px-6 font-mono text-xs text-slate-500">
                       {record.anonymized_recipient_hash.substring(0, 10)}...{record.anonymized_recipient_hash.slice(-8)}
@@ -176,7 +194,7 @@ export const SpendRecordsTable: React.FC<SpendRecordsTableProps> = ({
                     <td className="py-3.5 px-4 sm:px-6">
                       <VerificationBadge
                         status={status}
-                        txHash={status === 'verified' ? record.transaction_ref : undefined}
+                        txHash={isTxHash && status === 'verified' ? record.transaction_ref : undefined}
                       />
                     </td>
                   </tr>

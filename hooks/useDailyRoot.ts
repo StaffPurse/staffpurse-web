@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { Contract, SorobanRpc, TransactionBuilder, Networks, nativeToScVal, Keypair, Account } from "@stellar/stellar-sdk";
 
 export interface UseDailyRootResult {
   root: string | null;
@@ -41,10 +42,10 @@ export function useDailyRoot(batchDate: string | null): UseDailyRootResult {
     async function fetchRoot() {
       try {
         const rpcUrl = process.env.NEXT_PUBLIC_SOROBAN_RPC_URL || 'https://soroban-testnet.stellar.org';
-        const contractId = process.env.NEXT_PUBLIC_ANCHOR_CONTRACT_ID;
+        const contractId = process.env.NEXT_PUBLIC_ANCHOR_CONTRACT_ID || 'CBBIYZV3L4K5RZAO7HD76A4WHT2JGGTN7ESAGPLZ3OMCJLSCSDLQTYBJ';
 
         // Offline / Mock mode fallback
-        if (process.env.NEXT_PUBLIC_USE_MOCKS === 'true' || !contractId) {
+        if (process.env.NEXT_PUBLIC_USE_MOCKS === 'true') {
           // Synthetic deterministic hash for demonstration/development
           const mockRoot = 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855';
           if (isMounted) {
@@ -55,36 +56,49 @@ export function useDailyRoot(batchDate: string | null): UseDailyRootResult {
           return;
         }
 
-        // Production RPC query via JSON-RPC
-        const response = await fetch(rpcUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            jsonrpc: '2.0',
-            id: 1,
-            method: 'getContractData',
-            params: {
-              contractId: contractId,
-              key: batchDate,
-              durability: 'persistent',
-            },
-          }),
-        });
+        const server = new SorobanRpc.Server(rpcUrl);
+        const contract = new Contract(contractId);
+        
+        // Remove hyphens for symbol 'YYYYMMDD'
+        const symbolStr = batchDate!.replace(/-/g, "");
+        const scValSymbol = nativeToScVal(symbolStr, { type: "symbol" });
 
-        if (!response.ok) {
-          throw new Error(`Soroban RPC returned HTTP ${response.status}`);
-        }
+        const dummyKeypair = Keypair.random();
+        const dummyAccount = new Account(dummyKeypair.publicKey(), "-1");
 
-        const data = await response.json();
-        const rootHex = data.result?.val || null;
+        const tx = new TransactionBuilder(dummyAccount, {
+          fee: "100",
+          networkPassphrase: Networks.TESTNET,
+        })
+          .addOperation(contract.call("get_root", scValSymbol))
+          .setTimeout(30)
+          .build();
 
-        if (isMounted) {
-          if (rootHex) {
+        const result = await server.simulateTransaction(tx);
+
+        if (!isMounted) return;
+
+        if (
+          SorobanRpc.Api.isSimulationSuccess(result) &&
+          result.result &&
+          result.result.retval
+        ) {
+          const scVal = result.result.retval;
+          if (scVal.switch().name === "scvBytes") {
+            const bytes = scVal.bytes();
+            const rootHex = Array.from(bytes)
+              .map((b) => b.toString(16).padStart(2, "0"))
+              .join("");
+              
             rootCache.set(batchDate as string, rootHex);
+            setRoot(rootHex);
+          } else {
+            setRoot(null);
           }
-          setRoot(rootHex);
-          setIsLoading(false);
+        } else {
+          setRoot(null);
         }
+        setIsLoading(false);
       } catch (err: any) {
         if (isMounted) {
           console.error(`[useDailyRoot] Error fetching root for ${batchDate}:`, err);

@@ -27,24 +27,24 @@ const DEMO_RECORDS: SpendRecord[] = [
   {
     id: 'rec-01',
     batch_date: '2026-09-08',
-    transaction_ref: '7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069',
+    transaction_ref: '350e6bfef8513cfe82ea803c16025730bd0817f63c70e8d422906eefc3527e56',
     anonymized_recipient_hash: 'a1b2c3d4e5f67890123456789abcdef012345678',
     amount_ngn: 25000.0,
     currency: 'NGN',
     merkle_proof: [
-      { position: 'right', data: '7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069' },
+      { position: 'right', data: '350e6bfef8513cfe82ea803c16025730bd0817f63c70e8d422906eefc3527e56' },
     ],
     created_at: '2026-09-08T14:22:10Z',
   },
   {
     id: 'rec-02',
     batch_date: '2026-09-08',
-    transaction_ref: '2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae',
+    transaction_ref: '350e6bfef8513cfe82ea803c16025730bd0817f63c70e8d422906eefc3527e56',
     anonymized_recipient_hash: 'c8f1e2d3b4a567890123456789abcdef01234567',
     amount_ngn: 15400.0,
     currency: 'NGN',
     merkle_proof: [
-      { position: 'left', data: '2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae' },
+      { position: 'left', data: '350e6bfef8513cfe82ea803c16025730bd0817f63c70e8d422906eefc3527e56' },
     ],
     created_at: '2026-09-08T15:40:02Z',
   },

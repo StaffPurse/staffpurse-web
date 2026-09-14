@@ -64,5 +64,5 @@ Please read our [Contributing Guidelines](CONTRIBUTING.md) and [Security Policy]
 ## Contributors
 
 <a href="https://github.com/StaffPurse/staffpurse-web/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=StaffPurse/staffpurse-web" alt="Contributors" />
+  <img src="https://contrib.rocks/image?repo=StaffPurse/staffpurse-web&v=1" alt="Contributors" />
 </a>

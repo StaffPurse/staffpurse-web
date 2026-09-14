@@ -1,13 +1,17 @@
-import { useState, useEffect } from 'react';
-import { createClient } from '@supabase/supabase-js';
-import { getMockRecord } from '../lib/mock-data';
+import { useState, useEffect } from "react";
+import { createClient } from "@supabase/supabase-js";
 
-// Initialize Supabase client
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder';
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error(
+    "Missing NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY. " +
+      "Copy .env.example to .env.local and fill in your values."
+  );
+}
+
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
-
-const useMocks = process.env.NEXT_PUBLIC_USE_MOCKS === 'true';
 
 export interface SpendRecord {
   id: string;
@@ -35,25 +39,19 @@ export function useSpendRecord(recordId: string | null) {
       setIsLoading(true);
       setError(null);
       try {
-        if (useMocks) {
-          // Simulate network delay
-          await new Promise(resolve => setTimeout(resolve, 500));
-          const record = getMockRecord(recordId as string);
-          if (!record) throw new Error('Record not found (mock)');
-          if (isMounted) setData(record);
-          return;
-        }
-
         const { data: record, error: fetchError } = await supabase
-          .from('spend_records')
-          .select('*')
-          .eq('id', recordId)
+          .from("spend_records")
+          .select("*")
+          .eq("id", recordId)
           .single();
 
         if (fetchError) throw fetchError;
         if (isMounted) setData(record as SpendRecord);
       } catch (err) {
-        if (isMounted) setError(err instanceof Error ? err : new Error('Failed to fetch record'));
+        if (isMounted)
+          setError(
+            err instanceof Error ? err : new Error("Failed to fetch record")
+          );
       } finally {
         if (isMounted) setIsLoading(false);
       }

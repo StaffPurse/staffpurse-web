@@ -90,12 +90,12 @@ export const SpendRecordsTable: React.FC<SpendRecordsTableProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+    <div className="bg-dark-900/80 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl overflow-hidden animate-fade-in">
       {/* Search & Filter Header */}
-      <div className="p-4 sm:p-6 border-b border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="p-4 sm:p-6 border-b border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="relative w-full sm:w-96">
           <svg
-            className="w-4 h-4 absolute left-3 top-3 text-slate-400"
+            className="w-4 h-4 absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -107,19 +107,19 @@ export const SpendRecordsTable: React.FC<SpendRecordsTableProps> = ({
             placeholder="Search by tx ref or recipient hash..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 text-sm bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all"
+            className="w-full pl-11 pr-4 py-3 text-sm bg-dark-800/50 border border-white/10 rounded-2xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-bmoni-500/50 focus:border-bmoni-500/50 transition-all"
           />
         </div>
 
         <div className="flex items-center gap-3 w-full sm:w-auto">
-          <label htmlFor="batch-date" className="text-xs font-medium text-slate-600">
+          <label htmlFor="batch-date" className="text-xs font-display font-medium text-gray-400">
             Batch Date:
           </label>
           <select
             id="batch-date"
             value={selectedBatchDate}
             onChange={(e) => setSelectedBatchDate(e.target.value)}
-            className="text-xs py-2 px-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            className="text-xs py-2.5 px-4 bg-dark-800/50 border border-white/10 rounded-xl text-white focus:ring-2 focus:ring-bmoni-500/50 focus:outline-none"
           >
             <option value="2026-09-08">2026-09-08 (Anchored)</option>
             <option value="2026-09-09">2026-09-09 (Current / Pending)</option>
@@ -131,35 +131,41 @@ export const SpendRecordsTable: React.FC<SpendRecordsTableProps> = ({
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse text-sm">
           <thead>
-            <tr className="bg-slate-50 text-slate-500 border-b border-slate-200 font-semibold text-xs">
-              <th className="py-3.5 px-4 sm:px-6">Timestamp</th>
-              <th className="py-3.5 px-4 sm:px-6">Transaction Ref</th>
-              <th className="py-3.5 px-4 sm:px-6">Anonymized Recipient</th>
-              <th className="py-3.5 px-4 sm:px-6">Amount</th>
-              <th className="py-3.5 px-4 sm:px-6">Blockchain Status</th>
+            <tr className="bg-dark-800/30 text-gray-400 border-b border-white/10 font-display font-semibold text-xs">
+              <th className="py-4 px-4 sm:px-6">Timestamp</th>
+              <th className="py-4 px-4 sm:px-6">Transaction Ref</th>
+              <th className="py-4 px-4 sm:px-6">Anonymized Recipient</th>
+              <th className="py-4 px-4 sm:px-6">Amount</th>
+              <th className="py-4 px-4 sm:px-6">Blockchain Status</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-100">
+          <tbody className="divide-y divide-white/5">
             {isLoading ? (
               <tr>
-                <td colSpan={5} className="py-12 text-center text-slate-400">
-                  Loading spend records...
+                <td colSpan={5} className="py-16 text-center">
+                  <div className="flex flex-col items-center gap-4">
+                    <div className="w-12 h-12 rounded-full border-2 border-bmoni-500 border-t-transparent animate-spin" />
+                    <span className="text-gray-400 font-display">Loading spend records...</span>
+                  </div>
                 </td>
               </tr>
             ) : filteredRecords.length === 0 ? (
               <tr>
-                <td colSpan={5} className="py-12 text-center text-slate-400">
+                <td colSpan={5} className="py-16 text-center text-gray-400 font-display">
                   No matching spend records found.
                 </td>
               </tr>
             ) : (
-              filteredRecords.map((record) => {
+              filteredRecords.map((record, index) => {
                 const status = getRecordStatus(record);
-                // Simple heuristic: if it looks like a hex string and status is verified, we can link it
                 const isTxHash = /^[a-fA-F0-9]{64}$/.test(record.transaction_ref);
                 return (
-                  <tr key={record.id} className="hover:bg-slate-50/80 transition-colors">
-                    <td className="py-3.5 px-4 sm:px-6 text-xs text-slate-500 whitespace-nowrap">
+                  <tr 
+                    key={record.id} 
+                    className="hover:bg-white/5 transition-colors animate-slide-up"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <td className="py-4 px-4 sm:px-6 text-xs text-gray-400 whitespace-nowrap font-mono">
                       {new Date(record.created_at).toLocaleTimeString([], {
                         hour: '2-digit',
                         minute: '2-digit',
@@ -168,13 +174,13 @@ export const SpendRecordsTable: React.FC<SpendRecordsTableProps> = ({
                         day: 'numeric',
                       })}
                     </td>
-                    <td className="py-3.5 px-4 sm:px-6 font-mono text-xs text-slate-800 font-medium">
+                    <td className="py-4 px-4 sm:px-6 font-mono text-xs text-white font-medium">
                       {isTxHash && status === 'verified' ? (
                         <a 
                           href={getExplorerTxUrl(record.transaction_ref)} 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="text-blue-600 hover:text-blue-800 hover:underline inline-flex items-center gap-1"
+                          className="text-bmoni-400 hover:text-bmoni-300 hover:underline inline-flex items-center gap-1 transition-colors"
                         >
                           {record.transaction_ref.substring(0, 8)}...{record.transaction_ref.slice(-8)}
                           <ExternalLink className="w-3 h-3" />
@@ -185,13 +191,13 @@ export const SpendRecordsTable: React.FC<SpendRecordsTableProps> = ({
                           record.transaction_ref
                       )}
                     </td>
-                    <td className="py-3.5 px-4 sm:px-6 font-mono text-xs text-slate-500">
+                    <td className="py-4 px-4 sm:px-6 font-mono text-xs text-gray-400">
                       {record.anonymized_recipient_hash.substring(0, 10)}...{record.anonymized_recipient_hash.slice(-8)}
                     </td>
-                    <td className="py-3.5 px-4 sm:px-6 font-semibold text-slate-900">
+                    <td className="py-4 px-4 sm:px-6 font-display font-semibold text-white">
                       ₦{record.amount_ngn.toLocaleString('en-NG', { minimumFractionDigits: 2 })}
                     </td>
-                    <td className="py-3.5 px-4 sm:px-6">
+                    <td className="py-4 px-4 sm:px-6">
                       <VerificationBadge
                         status={status}
                         txHash={isTxHash && status === 'verified' ? record.transaction_ref : undefined}
@@ -206,14 +212,14 @@ export const SpendRecordsTable: React.FC<SpendRecordsTableProps> = ({
       </div>
 
       {/* Anchoring Card Footer */}
-      <div className="p-4 bg-slate-50/50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
+      <div className="p-4 bg-dark-800/30 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs gap-2">
         <div className="flex items-center gap-2">
-          <span className="font-semibold text-slate-700">Anchored Root ({selectedBatchDate}):</span>
-          <span className="font-mono bg-white px-2 py-0.5 rounded border border-slate-200 text-slate-600 truncate max-w-xs sm:max-w-md">
+          <span className="font-display font-semibold text-gray-400">Anchored Root ({selectedBatchDate}):</span>
+          <span className="font-mono bg-dark-800/50 px-3 py-1 rounded-lg border border-white/10 text-bmoni-300 truncate max-w-xs sm:max-w-md">
             {isRootLoading ? 'Querying Soroban...' : dailyRoot || 'Not Anchored Yet'}
           </span>
         </div>
-        <span>{filteredRecords.length} records verified</span>
+        <span className="text-gray-500 font-display">{filteredRecords.length} records verified</span>
       </div>
     </div>
   );

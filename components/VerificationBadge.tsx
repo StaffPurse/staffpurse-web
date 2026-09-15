@@ -28,8 +28,8 @@ export const VerificationBadge: React.FC<VerificationBadgeProps> = ({
     switch (status) {
       case 'verified':
         return (
-          <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 ${className}`}>
-            <svg className="w-3.5 h-3.5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-display font-semibold bg-stellar-400/20 text-stellar-400 border border-stellar-400/30 hover-glow transition-all ${className}`}>
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
             </svg>
             Verified on Stellar
@@ -38,8 +38,8 @@ export const VerificationBadge: React.FC<VerificationBadgeProps> = ({
         );
       case 'pending':
         return (
-          <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200 ${className}`}>
-            <svg className="w-3.5 h-3.5 text-amber-600 animate-spin" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-display font-semibold bg-amber-500/20 text-amber-400 border border-amber-500/30 ${className}`}>
+            <svg className="w-3.5 h-3.5 animate-spin" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             Pending Batch Anchor
@@ -47,8 +47,8 @@ export const VerificationBadge: React.FC<VerificationBadgeProps> = ({
         );
       case 'invalid':
         return (
-          <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-200 ${className}`}>
-            <svg className="w-3.5 h-3.5 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-display font-semibold bg-rose-500/20 text-rose-400 border border-rose-500/30 ${className}`}>
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
             </svg>
             Proof Mismatch
@@ -57,8 +57,8 @@ export const VerificationBadge: React.FC<VerificationBadgeProps> = ({
       case 'loading':
       default:
         return (
-          <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-slate-50 text-slate-600 border border-slate-200 ${className}`}>
-            <span className="w-2 h-2 rounded-full bg-slate-400 animate-ping" />
+          <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-display font-medium bg-dark-700/50 text-gray-400 border border-white/10 ${className}`}>
+            <span className="w-2 h-2 rounded-full bg-bmoni-500 animate-pulse" />
             Verifying...
           </span>
         );

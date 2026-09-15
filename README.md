@@ -11,6 +11,7 @@
   </p>
 
   <p>
+    <a href="https://staffpurse.github.io/staffpurse-web"><strong>Live Dashboard</strong></a> ·
     <a href="https://staffpurse.github.io/staffpurse-web/docs"><strong>Documentation</strong></a> ·
     <a href="https://t.me/+Gflo5jZStw1jMjE0"><strong>Community Telegram</strong></a>
   </p>

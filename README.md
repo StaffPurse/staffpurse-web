@@ -1,4 +1,7 @@
 <div align="center">
+  <!-- 🖼️ Banner/Logo Placeholder -->
+  <img src="https://placehold.co/800x200/1e1e2e/a6accd.svg?text=StaffPurse+staffpurse-web" alt="" width="100%" />
+
   <h1>StaffPurse Web</h1>
   <p><strong>Public verification dashboard for StaffPurse's Soroban-anchored spend records.</strong></p>
 

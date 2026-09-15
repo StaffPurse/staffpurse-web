@@ -28,38 +28,38 @@ export const VerificationBadge: React.FC<VerificationBadgeProps> = ({
     switch (status) {
       case 'verified':
         return (
-          <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-display font-semibold bg-stellar-400/20 text-stellar-400 border border-stellar-400/30 hover-glow transition-all ${className}`}>
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 ${className}`}>
+            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
             </svg>
-            Verified on Stellar
-            {txHash && <ExternalLinkIcon className="w-3 h-3 ml-0.5 opacity-70" />}
+            Verified
+            {txHash && <ExternalLinkIcon className="w-3 h-3 ml-0.5 opacity-60" />}
           </span>
         );
       case 'pending':
         return (
-          <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-display font-semibold bg-amber-500/20 text-amber-400 border border-amber-500/30 ${className}`}>
-            <svg className="w-3.5 h-3.5 animate-spin" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20 ${className}`}>
+            <svg className="w-3 h-3 animate-spin" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            Pending Batch Anchor
+            Pending
           </span>
         );
       case 'invalid':
         return (
-          <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-display font-semibold bg-rose-500/20 text-rose-400 border border-rose-500/30 ${className}`}>
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-red-500/10 text-red-400 border border-red-500/20 ${className}`}>
+            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
             </svg>
-            Proof Mismatch
+            Mismatch
           </span>
         );
       case 'loading':
       default:
         return (
-          <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-display font-medium bg-dark-700/50 text-gray-400 border border-white/10 ${className}`}>
-            <span className="w-2 h-2 rounded-full bg-bmoni-500 animate-pulse" />
-            Verifying...
+          <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-zinc-800 text-zinc-400 border border-zinc-700 ${className}`}>
+            <span className="w-1.5 h-1.5 rounded-full bg-zinc-500 animate-pulse" />
+            Verifying
           </span>
         );
     }
@@ -71,8 +71,8 @@ export const VerificationBadge: React.FC<VerificationBadgeProps> = ({
         href={getExplorerTxUrl(txHash)}
         target="_blank"
         rel="noopener noreferrer"
-        title="Inspect on Stellar Expert"
-        className="hover:opacity-90 transition-opacity"
+        title="View on Stellar Expert"
+        className="hover:opacity-80 transition-opacity"
       >
         {badgeContent()}
       </a>

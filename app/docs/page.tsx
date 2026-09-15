@@ -3,212 +3,173 @@ import Link from 'next/link';
 
 export default function DocsPage() {
   return (
-    <div className="min-h-screen bg-dark-950 text-white selection:bg-bmoni-500/30 selection:text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row gap-12">
-        
-        {/* Sticky Sidebar - Glass Morphism */}
-        <aside className="w-full md:w-64 flex-shrink-0">
-          <div className="sticky top-24 space-y-8">
-            {/* Logo */}
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-bmoni-500 to-bmoni-600 flex items-center justify-center text-white font-bold text-lg">
-                S
-              </div>
-              <span className="font-display font-bold text-white">Docs</span>
-            </div>
-            
-            <div>
-              <h3 className="text-xs font-display font-semibold uppercase tracking-wider text-bmoni-400 mb-3">Overview</h3>
-              <ul className="space-y-2">
-                <li><a href="#vision" className="text-gray-400 hover:text-bmoni-300 font-display font-medium transition-colors block py-1">Vision & Mission</a></li>
-                <li><a href="#architecture" className="text-gray-400 hover:text-bmoni-300 font-display font-medium transition-colors block py-1">System Architecture</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xs font-display font-semibold uppercase tracking-wider text-bmoni-400 mb-3">Repositories</h3>
-              <ul className="space-y-2">
-                <li><a href="#contracts" className="text-gray-400 hover:text-bmoni-300 font-display font-medium transition-colors block py-1">Contracts (Soroban)</a></li>
-                <li><a href="#app" className="text-gray-400 hover:text-bmoni-300 font-display font-medium transition-colors block py-1">App (Mobile & Edge)</a></li>
-                <li><a href="#web" className="text-gray-400 hover:text-bmoni-300 font-display font-medium transition-colors block py-1">Web (Dashboard)</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xs font-display font-semibold uppercase tracking-wider text-bmoni-400 mb-3">Resources</h3>
-              <ul className="space-y-2">
-                <li><a href="https://github.com/StaffPurse" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-bmoni-300 font-display font-medium flex items-center gap-1 transition-colors py-1">GitHub Org ↗</a></li>
-                <li><a href="https://stellar.org" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-bmoni-300 font-display font-medium flex items-center gap-1 transition-colors py-1">Stellar Network ↗</a></li>
-              </ul>
-            </div>
-          </div>
-        </aside>
-
-        {/* Main Content Area */}
-        <main className="flex-1 min-w-0">
-          
-          {/* Web3 Hero Section - Mesh Gradient */}
-          <div className="relative overflow-hidden rounded-3xl bg-dark-900/80 backdrop-blur-xl px-8 py-16 sm:px-12 sm:py-20 mb-16 shadow-2xl border border-white/10">
-            {/* Animated Background */}
-            <div className="absolute inset-0 opacity-30">
-              <div className="absolute top-0 left-0 w-96 h-96 bg-bmoni-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
-              <div className="absolute bottom-0 right-0 w-96 h-96 bg-stellar-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000" />
-            </div>
-            
-            {/* Noise Overlay */}
-            <div className="absolute inset-0 noise-overlay" />
-            
-            <div className="relative z-10">
-              <span className="inline-block py-2 px-4 rounded-full bg-bmoni-500/20 border border-bmoni-400/30 text-bmoni-300 text-xs font-display font-semibold tracking-wide uppercase mb-6 animate-fade-in">
-                Official Documentation
-              </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold tracking-tight mb-6 animate-slide-up">
-                <span className="text-white">StaffPurse</span>
-                <br />
-                <span className="text-gradient">Transparency Protocol</span>
-              </h1>
-              <p className="text-lg sm:text-xl text-gray-400 max-w-2xl leading-relaxed animate-slide-up animation-delay-200">
-                A decentralized corporate spend management ecosystem leveraging the Stellar network and Soroban smart contracts to provide immutable, cryptographic proof of corporate expenses.
-              </p>
-            </div>
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 flex flex-col md:flex-row gap-10">
+      {/* Sidebar */}
+      <aside className="w-full md:w-56 flex-shrink-0">
+        <div className="sticky top-20 space-y-6">
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 rounded bg-bmoni-500 flex items-center justify-center text-white font-bold text-[10px]">S</div>
+            <span className="text-sm font-semibold">Docs</span>
           </div>
 
-          <div className="prose prose-invert prose-lg max-w-none">
-            
-            {/* Vision Section */}
-            <section id="vision" className="scroll-mt-24 mb-16">
-              <h2 className="text-3xl font-display font-bold tracking-tight text-white border-b border-white/10 pb-4 mb-6">
-                Vision & Mission
-              </h2>
-              <p className="text-lg text-gray-400 leading-relaxed mb-6">
-                Corporate spend management is historically opaque. Employees submit receipts into centralized black boxes, and external auditors rely entirely on trusting the corporation&apos;s internal database records. 
-              </p>
-              <p className="text-lg text-gray-400 leading-relaxed mb-6">
-                <strong className="text-white">StaffPurse changes this paradigm.</strong> By cryptographically hashing daily expense records into a Merkle Tree and anchoring the root on the Stellar blockchain, we prove that historical records have never been tampered with.
-              </p>
-              <div className="bg-bmoni-500/10 border-l-4 border-bmoni-500 p-6 rounded-r-xl my-8">
-                <h4 className="text-bmoni-300 font-display font-semibold mb-2">The Drips Wave</h4>
-                <p className="text-bmoni-300/80 text-sm">
-                  StaffPurse is built in alignment with the Drips Wave program, pushing the boundaries of what is possible with Soroban smart contracts, edge compute, and seamless Web3 UX.
-                </p>
-              </div>
-            </section>
+          <div>
+            <h3 className="text-[11px] font-medium text-zinc-500 uppercase tracking-wider mb-2">Overview</h3>
+            <ul className="space-y-1">
+              <li><a href="#vision" className="text-sm text-zinc-400 hover:text-zinc-100 transition-colors py-1 block">Vision</a></li>
+              <li><a href="#architecture" className="text-sm text-zinc-400 hover:text-zinc-100 transition-colors py-1 block">Architecture</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-[11px] font-medium text-zinc-500 uppercase tracking-wider mb-2">Repositories</h3>
+            <ul className="space-y-1">
+              <li><a href="#contracts" className="text-sm text-zinc-400 hover:text-zinc-100 transition-colors py-1 block">Contracts</a></li>
+              <li><a href="#app" className="text-sm text-zinc-400 hover:text-zinc-100 transition-colors py-1 block">App</a></li>
+              <li><a href="#web" className="text-sm text-zinc-400 hover:text-zinc-100 transition-colors py-1 block">Web</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-[11px] font-medium text-zinc-500 uppercase tracking-wider mb-2">Links</h3>
+            <ul className="space-y-1">
+              <li><a href="https://github.com/StaffPurse" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-400 hover:text-zinc-100 transition-colors py-1 block">GitHub ↗</a></li>
+              <li><a href="https://stellar.org" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-400 hover:text-zinc-100 transition-colors py-1 block">Stellar ↗</a></li>
+            </ul>
+          </div>
+        </div>
+      </aside>
 
-            {/* Architecture Section */}
-            <section id="architecture" className="scroll-mt-24 mb-16">
-              <h2 className="text-3xl font-display font-bold tracking-tight text-white border-b border-white/10 pb-4 mb-6">
-                System Architecture
-              </h2>
-              <p className="text-lg text-gray-400 leading-relaxed mb-8">
-                The StaffPurse ecosystem is separated into three distinct, highly optimized repositories to ensure a clean separation of concerns.
-              </p>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 my-8">
-                {/* Contract Card */}
-                <div className="bg-dark-800/50 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-bmoni-500/50 transition-all duration-300 hover-glow">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-stellar-400 to-stellar-500 flex items-center justify-center mb-4 shadow-lg shadow-stellar-400/30">
-                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                  <h4 className="font-display font-bold text-white mb-2">1. Soroban Contracts</h4>
-                  <p className="text-sm text-gray-400">Rust-based smart contracts storing immutable 32-byte Merkle roots on Stellar testnet.</p>
-                </div>
-                
-                {/* App Card */}
-                <div className="bg-dark-800/50 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-bmoni-500/50 transition-all duration-300 hover-glow">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-bmoni-500 to-bmoni-600 flex items-center justify-center mb-4 shadow-lg shadow-bmoni-500/30">
-                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <h4 className="font-display font-bold text-white mb-2">2. Mobile & Edge App</h4>
-                  <p className="text-sm text-gray-400">Flutter mobile client and Deno Edge functions for Merkle tree batching.</p>
-                </div>
-                
-                {/* Web Card */}
-                <div className="bg-dark-800/50 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-bmoni-500/50 transition-all duration-300 hover-glow">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-dark-600 to-dark-700 flex items-center justify-center mb-4 shadow-lg shadow-dark-600/30">
-                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <h4 className="font-display font-bold text-white mb-2">3. Web Dashboard</h4>
-                  <p className="text-sm text-gray-400">Next.js public portal for auditors to verify cryptographic proofs instantly.</p>
-                </div>
-              </div>
-            </section>
+      {/* Content */}
+      <main className="flex-1 min-w-0">
+        {/* Hero */}
+        <div className="bg-surface-1 border border-zinc-800 rounded-xl px-8 py-12 mb-10">
+          <span className="text-[11px] font-medium text-bmoni-400 uppercase tracking-wider">Documentation</span>
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mt-3 mb-4">
+            StaffPurse Transparency Protocol
+          </h1>
+          <p className="text-zinc-400 max-w-xl leading-relaxed">
+            A corporate spend management ecosystem using Stellar Soroban smart contracts
+            to provide immutable, cryptographic proof of expenses.
+          </p>
+        </div>
 
-            {/* Contracts Repository */}
-            <section id="contracts" className="scroll-mt-24 mb-16">
-              <h2 className="text-3xl font-display font-bold tracking-tight text-white border-b border-white/10 pb-4 mb-6">
-                Repository: staffpurse-contracts
-              </h2>
-              <div className="bg-dark-800 text-gray-300 p-6 rounded-2xl mb-6 font-mono text-sm border border-white/10">
-                github.com/StaffPurse/staffpurse-contracts
-              </div>
-              <p className="text-lg text-gray-400 leading-relaxed mb-4">
-                The absolute source of truth for the StaffPurse ecosystem. Written in Rust and deployed to the Stellar Soroban environment, this repository contains the <code className="text-bmoni-300 bg-bmoni-500/10 px-2 py-0.5 rounded">StaffPurseAnchor</code> contract.
+        <div className="prose prose-invert prose-zinc max-w-none prose-headings:scroll-mt-20">
+          {/* Vision */}
+          <section id="vision" className="mb-12">
+            <h2 className="text-xl font-bold border-b border-zinc-800 pb-3 mb-4">Vision</h2>
+            <p className="text-zinc-400 leading-relaxed mb-4">
+              Corporate spend management is historically opaque. Auditors rely on trusting internal databases.
+              StaffPurse changes this by hashing daily expense records into a Merkle tree and anchoring the root
+              on the Stellar blockchain — proving records have never been tampered with.
+            </p>
+            <div className="bg-surface-1 border border-zinc-800 rounded-lg p-4 text-sm">
+              <p className="font-medium text-zinc-200 mb-1">Drips Wave Program</p>
+              <p className="text-zinc-400">
+                StaffPurse is built in alignment with the Drips Wave program, pushing boundaries
+                of Soroban smart contracts and seamless Web3 UX.
               </p>
-              <h3 className="text-xl font-display font-bold text-white mt-8 mb-4">Core Functionality</h3>
-              <ul className="list-disc pl-6 space-y-2 text-gray-400">
-                <li><strong className="text-white">State Initialization:</strong> The contract is initialized with a trusted <code className="text-bmoni-300 bg-bmoni-500/10 px-2 py-0.5 rounded">admin</code> (the StaffPurse Edge Function wallet address).</li>
-                <li><strong className="text-white">Root Anchoring:</strong> Only the authorized admin can call <code className="text-bmoni-300 bg-bmoni-500/10 px-2 py-0.5 rounded">anchor_root(batch_date, root_hash)</code>.</li>
-                <li><strong className="text-white">Public Querying:</strong> Anyone can call <code className="text-bmoni-300 bg-bmoni-500/10 px-2 py-0.5 rounded">get_root(batch_date)</code> to retrieve the historical root.</li>
-                <li><strong className="text-white">WASM Upgrades:</strong> Built-in upgrade pathways allow the admin to swap out the WASM logic.</li>
-              </ul>
-            </section>
+            </div>
+          </section>
 
-            {/* App Repository */}
-            <section id="app" className="scroll-mt-24 mb-16">
-              <h2 className="text-3xl font-display font-bold tracking-tight text-white border-b border-white/10 pb-4 mb-6">
-                Repository: staffpurse-app
-              </h2>
-              <div className="bg-dark-800 text-gray-300 p-6 rounded-2xl mb-6 font-mono text-sm border border-white/10">
-                github.com/StaffPurse/staffpurse-app
-              </div>
-              <p className="text-lg text-gray-400 leading-relaxed mb-4">
-                The backend engine and employee-facing interface. This repository houses the Flutter mobile application, the Supabase PostgreSQL database schema, and the mission-critical Deno Edge functions.
-              </p>
-              <h3 className="text-xl font-display font-bold text-white mt-8 mb-4">The Batching Pipeline</h3>
-              <ol className="list-decimal pl-6 space-y-4 text-gray-400">
-                <li><strong className="text-white">Data Entry:</strong> Employees submit expenses via the Flutter app. Data is stored in Supabase with RLS.</li>
-                <li><strong className="text-white">Daily Cron Job:</strong> At 00:05 UTC, pg_cron triggers the <code className="text-bmoni-300 bg-bmoni-500/10 px-2 py-0.5 rounded">anchor-batch</code> Edge Function.</li>
-                <li><strong className="text-white">Merkle Tree Generation:</strong> The Deno function selects all un-anchored records, computes their SHA-256 leaves.</li>
-                <li><strong className="text-white">On-Chain Submission:</strong> The function signs a Soroban transaction with the generated root.</li>
-                <li><strong className="text-white">Database Update:</strong> Upon successful anchoring, individual records are updated with Merkle inclusion proofs.</li>
-              </ol>
-            </section>
+          {/* Architecture */}
+          <section id="architecture" className="mb-12">
+            <h2 className="text-xl font-bold border-b border-zinc-800 pb-3 mb-4">Architecture</h2>
+            <p className="text-zinc-400 leading-relaxed mb-6">
+              Three repositories with clean separation of concerns:
+            </p>
 
-            {/* Web Repository */}
-            <section id="web" className="scroll-mt-24 mb-16">
-              <h2 className="text-3xl font-display font-bold tracking-tight text-white border-b border-white/10 pb-4 mb-6">
-                Repository: staffpurse-web
-              </h2>
-              <div className="bg-dark-800 text-gray-300 p-6 rounded-2xl mb-6 font-mono text-sm border border-white/10">
-                github.com/StaffPurse/staffpurse-web
-              </div>
-              <p className="text-lg text-gray-400 leading-relaxed mb-4">
-                The public face of transparency. A blazing fast Next.js React application styled with Tailwind CSS, deployed statically to GitHub Pages.
-              </p>
-              <div className="mt-6 mb-8">
-                <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-bmoni-500 to-bmoni-600 text-white font-display font-semibold rounded-xl shadow-lg shadow-bmoni-500/30 hover:shadow-xl hover:shadow-bmoni-500/40 transition-all duration-300">
-                  View Live Dashboard
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 not-prose">
+              <div className="bg-surface-1 border border-zinc-800 rounded-lg p-4">
+                <div className="w-8 h-8 rounded bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-3">
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
-                </Link>
+                </div>
+                <h4 className="font-semibold text-sm mb-1">Contracts</h4>
+                <p className="text-xs text-zinc-500">Rust/Soroban smart contracts storing Merkle roots on Stellar.</p>
               </div>
-              <h3 className="text-xl font-display font-bold text-white mt-8 mb-4">Auditor UX</h3>
-              <p className="text-gray-400 mb-4">
-                The dashboard fetches the latest spending records via a public REST API. Crucially, it then executes a live JSON-RPC call directly to the Stellar Soroban Testnet to fetch the authoritative Merkle root for that day.
-              </p>
-              <p className="text-gray-400 mb-4">
-                All cryptography (SHA-256 hashing and Merkle proof verification) is performed entirely in the browser&apos;s JavaScript environment. If the local proof computation matches the on-chain root, a green <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-stellar-400/20 text-stellar-400 border border-stellar-400/30">Verified</span> badge is shown.
-              </p>
-            </section>
+              <div className="bg-surface-1 border border-zinc-800 rounded-lg p-4">
+                <div className="w-8 h-8 rounded bg-bmoni-500/10 text-bmoni-400 flex items-center justify-center mb-3">
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h4 className="font-semibold text-sm mb-1">App</h4>
+                <p className="text-xs text-zinc-500">Flutter mobile client and Deno Edge functions for batching.</p>
+              </div>
+              <div className="bg-surface-1 border border-zinc-800 rounded-lg p-4">
+                <div className="w-8 h-8 rounded bg-zinc-700 text-zinc-300 flex items-center justify-center mb-3">
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h4 className="font-semibold text-sm mb-1">Web</h4>
+                <p className="text-xs text-zinc-500">Next.js public verification dashboard.</p>
+              </div>
+            </div>
+          </section>
 
-          </div>
-        </main>
-      </div>
+          {/* Contracts */}
+          <section id="contracts" className="mb-12">
+            <h2 className="text-xl font-bold border-b border-zinc-800 pb-3 mb-4">staffpurse-contracts</h2>
+            <div className="not-prose bg-surface-1 text-zinc-400 p-3 rounded-lg font-mono text-xs mb-4 border border-zinc-800">
+              github.com/StaffPurse/staffpurse-contracts
+            </div>
+            <p className="text-zinc-400 leading-relaxed mb-4">
+              The source of truth. A Rust <code className="text-bmoni-400 bg-surface-2 px-1.5 py-0.5 rounded text-xs">StaffPurseAnchor</code> contract
+              deployed to Soroban.
+            </p>
+            <h3 className="text-base font-semibold mt-6 mb-3">Core Functions</h3>
+            <ul className="text-zinc-400 text-sm space-y-2 list-disc pl-5">
+              <li><strong className="text-zinc-200">anchor_root(batch_date, root_hash)</strong> — admin-only write</li>
+              <li><strong className="text-zinc-200">get_root(batch_date)</strong> — public read for verification</li>
+              <li>WASM upgrade pathways for future features</li>
+            </ul>
+          </section>
+
+          {/* App */}
+          <section id="app" className="mb-12">
+            <h2 className="text-xl font-bold border-b border-zinc-800 pb-3 mb-4">staffpurse-app</h2>
+            <div className="not-prose bg-surface-1 text-zinc-400 p-3 rounded-lg font-mono text-xs mb-4 border border-zinc-800">
+              github.com/StaffPurse/staffpurse-app
+            </div>
+            <p className="text-zinc-400 leading-relaxed mb-4">
+              Flutter mobile app + Supabase backend + Deno Edge Functions for the daily anchoring pipeline.
+            </p>
+            <h3 className="text-base font-semibold mt-6 mb-3">Pipeline</h3>
+            <ol className="text-zinc-400 text-sm space-y-2 list-decimal pl-5">
+              <li>Employees submit expenses via the Flutter app</li>
+              <li>At 00:05 UTC, pg_cron triggers the <code className="text-bmoni-400 bg-surface-2 px-1.5 py-0.5 rounded text-xs">anchor-batch</code> function</li>
+              <li>Merkle tree built from un-anchored records (SHA-256 leaves)</li>
+              <li>Root submitted to Soroban via Stellar RPC</li>
+              <li>Records updated with Merkle inclusion proofs</li>
+            </ol>
+          </section>
+
+          {/* Web */}
+          <section id="web" className="mb-12">
+            <h2 className="text-xl font-bold border-b border-zinc-800 pb-3 mb-4">staffpurse-web</h2>
+            <div className="not-prose bg-surface-1 text-zinc-400 p-3 rounded-lg font-mono text-xs mb-4 border border-zinc-800">
+              github.com/StaffPurse/staffpurse-web
+            </div>
+            <p className="text-zinc-400 leading-relaxed mb-4">
+              Next.js + Tailwind CSS, deployed to GitHub Pages. All cryptography runs in the browser.
+            </p>
+            <div className="not-prose mt-4 mb-6">
+              <Link href="/" className="inline-flex items-center gap-2 px-4 py-2 bg-bmoni-500 text-white text-sm font-medium rounded-lg hover:bg-bmoni-600 transition-colors">
+                View Dashboard
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </Link>
+            </div>
+            <h3 className="text-base font-semibold mt-6 mb-3">How Verification Works</h3>
+            <p className="text-zinc-400 text-sm leading-relaxed">
+              The dashboard fetches records via REST API, queries the Soroban contract for the daily root,
+              and recomputes the root from the record hash and proof entirely in the browser.
+              If it matches, a <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Verified</span> badge is shown.
+            </p>
+          </section>
+        </div>
+      </main>
     </div>
   );
 }
